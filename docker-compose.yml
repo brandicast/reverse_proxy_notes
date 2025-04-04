@@ -1,0 +1,12 @@
+version: "3.81"
+
+services:
+  nginx-proxy:
+    restart: always
+    image: nginx:latest
+    container_name: my-reverse-nginx-proxy
+    ports:
+      - "5555:5555"
+    volumes:
+      # 掛載主設定檔
+      - /home/brandicast/reverse_proxy/nginx_config_for_docker_compose/nginx.conf:/etc/nginx/nginx.conf:ro
